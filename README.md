@@ -24,16 +24,23 @@ $(element).vtexcart({parameters});
 
 ## Parameters
 
-- <b>`buyButton`</b> 
-- <b>`wrapper`</b> 
-- <b>`effect`</b> Opção de como o carrinho será apresentado. 
-
 | Parameter     | Values              | Description                                  |
 | ------------- | ------------------- | -------------------------------------------- |
 | `buyButton`   | $(element)          | Buy button                                   |
 | `wrapper`     | $(element)          | Element that wraps the body                  |
 | `cartButton`  | $(element)          | Element that will receive the mini cart icon |
 | `effect`      | `overlay` or `push` | Transition effect (Default: `overlay`)       |
+
+
+## Build
+
+> As a prerequisite, you will need [grunt][grunt] installed: `npm install -g grunt-cli`
+
+```
+npm install
+grunt
+```
+
 
 ## Sites Using vtexcart.js
 
@@ -53,3 +60,4 @@ Licensed under [MIT][mit]. Enjoy.
 
 [twitter]: http://twitter.com/henriquesosa
 [mit]: http://www.opensource.org/licenses/mit-license.php
+[grunt]: http://http://www.gruntjs.com/
