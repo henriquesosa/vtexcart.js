@@ -86,7 +86,7 @@
 				alert('Por favor, selecione o modelo desejado.');
 				return false;
 			}else{
-				helper.openCar();
+				helper.openCart();
 
 				$.ajax({
 					url: url.replace('true','false'),
@@ -125,13 +125,11 @@
 
 		settings = $.extend(settings, parameters);
 
-		var cartHtml = '<div class="sta-cart-overlay"></div><div class="sta-cart-container"> <div class="sta-cart-title"> <button class="sta-cart-close"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><polygon fill="#fff" points="88.711,86.588 52.121,50 88.709,13.412 86.588,11.291 50,47.878 13.41,11.291 11.289,13.412   47.878,50 11.289,86.588 13.41,88.709 50,52.12 86.59,88.709 "/></svg></button> <h3>Meu Carrinho</h3> </div> <div class="sta-cart-items"> <ul></ul> </div> <div class="sta-cart-resume"> <span class="sta-cart-sub">Subtotal<strong>R$ 0,00</strong></span> <span class="sta-cart-freight">Frete<strong style="display:none">0</strong><button>Calcular</button><input type="text" /></span> <span class="sta-cart-total">Total<strong>R$ 0,00</strong></span> <a href="/checkout/#/email">Proceder para checkout</a> </div> </div>';
+		var cartHtml = '<div class="sta-cart-overlay"></div><div class="sta-cart-container"> <div class="sta-cart-title"> <button class="sta-cart-close"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><polygon fill="#000" points="88.711,86.588 52.121,50 88.709,13.412 86.588,11.291 50,47.878 13.41,11.291 11.289,13.412   47.878,50 11.289,86.588 13.41,88.709 50,52.12 86.59,88.709 "/></svg></button> <h3>Meu Carrinho</h3> </div> <div class="sta-cart-items"> <ul></ul> </div> <div class="sta-cart-resume"> <span class="sta-cart-sub">Subtotal<strong>R$ 0,00</strong></span> <span class="sta-cart-freight">Frete<strong style="display:none">0</strong><button>Calcular</button><input type="text" /></span> <span class="sta-cart-total">Total<strong>R$ 0,00</strong></span> <a href="/checkout/#/email">Proceder para checkout</a> </div> </div>';
 
 		var miniCartHtml = '<a href="#" class="openCart"><span></span></a>';
 
 		$(el).append(cartHtml);
-
-		console.log(settings);
 
 		if(settings.cartButton){
 			$(settings.cartButton).append(miniCartHtml);
@@ -171,19 +169,13 @@
 				return true;
 			}
 		});
+
+		$('.sta-cart-freight button').click(function(){
+			$(this).hide();
+			$('.sta-cart-freight input').show();
+		});
 	};
 
 	
 
 } (jQuery));
-
-
-
-$(window).ready(function(){
-	$('body').vtexcart({
-		buyButton : $('.buy-button'),
-		wrapper: $('.sta-wrapper'),
-		effect: 'push',
-		cartButton: $('.sta-cart') //default overlay
-	});
-});
